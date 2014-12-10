@@ -23,7 +23,7 @@ class Actor extends Element {
 
     // Checks that only one identifier is used.
     if ($used_identifiers !== 1) {
-      $errors[] = new Error('An Actor can only have one identifier', get_class($this));
+      $errors[] = new Error('An Actor must have exactly one identifier', get_class($this));
     }
 
     return array_merge($errors, parent::validate());
