@@ -1,0 +1,33 @@
+# xApi
+> Learning Locker's classes for xAPI.
+
+[![Build Status](https://travis-ci.org/LearningLocker/xapi.svg)](https://travis-ci.org/LearningLocker/xapi)
+[![Latest Stable Version](https://poser.pugx.org/LearningLocker/xapi/v/stable.svg)](https://packagist.org/packages/LearningLocker/xapi)
+[![Total Downloads](https://poser.pugx.org/LearningLocker/xapi/downloads.svg)](https://packagist.org/packages/LearningLocker/xapi)
+[![License](https://poser.pugx.org/LearningLocker/xapi/license.svg)](https://packagist.org/packages/LearningLocker/xapi)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/LearningLocker/xapi?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+If you have a bug, enhancement, or question you can post it in the [issues](/issues), however, please see the [guidelines](/contributing.md) before doing so. You may also ask questions and chat on [Gitter](https://gitter.im/LearningLocker/xapi).
+
+## Users
+Documentation can be found in the [docs](/docs) directory. Install using `composer require LearningLocker/xapi`.
+
+## Developers
+You may contribute to this project via [issues](/issues) and [pull request](/pulls), however, please see the [guidelines](/contributing.md) before doing so.
+
+### Getting Started
+1. [Fork](/fork) the repository.
+2. Clone your forked version of the repository.
+3. Run `composer install`.
+4. Change the code.
+5. Commit and push your changes to Github.
+6. Repeat from Step 4 or continue to step 7.
+7. Create a [pull request](/pulls) on Github (ensuring that you follow the [guidelines](/contributing.md)).
+
+### Directory Structure
+- [src](/src) - Source code written in PHP.
+- [tests](/tests) - Testing code written in PHP.
+- [docs](/docs) - Documentation written in "Github Flavoured Markdown".
+
+### Testing
+You should try to ensure that `./vendor/bin/phpunit tests` runs without any errors before submitting a pull request.

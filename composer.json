@@ -1,0 +1,14 @@
+{
+  "name": "xapi",
+  "description": "",
+  "license": "Creative Commons",
+  "autoload": {
+      "psr-4": { "Locker\\XApi\\": "src/" }
+  },
+  "authors": [
+    {
+      "name": "Ryan Smith",
+      "email": "0ryansmith1994@gmail.com"
+    }
+  ]
+}
