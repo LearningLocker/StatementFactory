@@ -1,4 +1,4 @@
-# xApi
+# xAPI
 > Learning Locker's classes for xAPI.
 
 [![Build Status](https://travis-ci.org/LearningLocker/xapi.svg)](https://travis-ci.org/LearningLocker/xapi)
