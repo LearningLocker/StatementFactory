@@ -2,7 +2,7 @@
 
 class UnknownProperties extends Error {
   public function __construct(array $properties, $trace) {
-    $message = 'Unknown properties [' . implode(', ', $properties) . ']';
+    $message = 'Unknown properties [`' . implode('`, `', $properties) . '`]';
     parent::__construct($message, $trace);
   }
 }
