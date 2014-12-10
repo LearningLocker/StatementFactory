@@ -7,21 +7,33 @@ class Helpers {
    * @param string $type
    * @param mixed $value
    */
-  public static function scalar($name, $type, $value) {
-    if (gettype($value) !== $type) {
+  public static function checkType($name, $type, $value) {
+    if (self::getType($value) !== $type) {
       throw new \UnexpectedValueException("Expected `$name` to be a `$type`.");
     }
   }
 
   /**
-   * Expects $name to be an instance of $class when $name is $value.
-   * @param string $name
-   * @param string $class
+   * Checks that $value is the correct $type.
    * @param mixed $value
+   * @param string $type
+   * @return boolean
    */
-  public static function isclass($name, $class, $value) {
-    if (get_class($value) !== $class) {
-      throw new \UnexpectedValueException("Expected `$name` to be a `$class`.");
+  public static function isType($value, $type) {
+    return self::getType($value) === $type;
+  }
+
+  /**
+   * Gets the type of a $value.
+   * @param mixed $value
+   * @return string $type
+   */
+  public static function getType($value) {
+    $type = gettype($value);
+    if ($type === 'object') {
+      return get_class($value);
+    } else {
+      return $type;
     }
   }
 }

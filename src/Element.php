@@ -23,22 +23,27 @@ abstract class Element extends Atom {
   /**
    * Adds properties from $new_value.
    * @param \stdClass $new_value
-   * @return Atom $this
+   * @return Element $this
    */
   public function setValue($new_value) {
-    Helpers::isclass('new_value', 'stdClass', $new_value);
+    Helpers::checkType('new_value', 'stdClass', $new_value);
     $new_props = $this->getSetProps($new_value);
 
     foreach ($new_props as $new_prop) {
-      $this->setProp($new_prop, $new_props{$new_prop});
+      $this->setProp($new_prop, $new_value->{$new_prop});
     }
 
     return $this;
   }
 
-  private function getSetProps($obj = null) {
-    $obj = $obj ?: $this->value;
-    return array_keys((array) $obj);
+  /**
+   * Gets all of the properties set on an $object or ($this->value).
+   * @param Object
+   * @return [string]
+   */
+  private function getSetProps($object = null) {
+    $object = $object ?: $this->value;
+    return array_keys((array) $object);
   }
 
   /**
@@ -65,7 +70,6 @@ abstract class Element extends Atom {
    */
   public function validate() {
     $errors = [];
-    $trace = get_class($this);
 
     // Gets properties.
     $set_props = $this->getSetProps();
@@ -74,14 +78,14 @@ abstract class Element extends Atom {
     // Finds missing properties.
     $missing_props = array_diff($this->required_props, $set_props);
     if (!empty($missing_props)) {
-      $errors[] = new MissingProperties($missing_props, $trace);
+      $errors[] = new MissingProperties($missing_props);
     }
 
     // Finds unknown properties.
     if (!$this->allow_unknown_props) {
       $unknown_props = array_diff($set_props, $this->known_props);
       if (!empty($unknown_props)) {
-        $errors[] = new UnknownProperties($unknown_props, $trace);
+        $errors[] = new UnknownProperties($unknown_props);
       }
     }
 
@@ -89,8 +93,8 @@ abstract class Element extends Atom {
     foreach ($set_props as $set_prop) {
       if ($this->value->{$set_prop} instanceof Atom) {
         $prop_errors = $this->value->{$set_prop}->validate();
-        $errors = array_merge(array_map(function (Error $error) use ($trace) {
-          return $error->addTrace($trace);
+        $errors = array_merge(array_map(function (Error $error) use ($set_prop) {
+          return $error->addTrace($set_prop);
         }, $prop_errors), $errors);
       }
     }
@@ -98,14 +102,22 @@ abstract class Element extends Atom {
     return $errors;
   }
 
+  /**
+   * Sets $prop_key on $this->value using $prop_value.
+   * @param string $prop_key
+   * @param mixed $prop_value
+   * @return Element $this
+   */
   public function setProp($prop_key, $prop_value) {
-    Helpers::scalar('prop_key', 'string', $prop_key);
+    Helpers::checkType('prop_key', 'string', $prop_key);
 
     // Constructs the $prop_value if it's a known a property and hasn't been constructed.
-    if (in_array($prop_key, $this->known_props) && !get_class($prop_value) === $this->known_props[$prop_key]) {
+    if (in_array($prop_key, $this->known_props) && !Helpers::isType($prop_value, $this->props[$prop_key])) {
       $this->value->{$prop_key} = new $this->props[$prop_key]($prop_value);
     } else {
       $this->value->{$prop_key} = $prop_value;
     }
+
+    return $this;
   }
 }

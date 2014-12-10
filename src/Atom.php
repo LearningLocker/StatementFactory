@@ -4,7 +4,7 @@ abstract class Atom {
   protected $value;
 
   /**
-   * Constructs a new instance of IO from the $value.
+   * Constructs a new instance of Atom from the $value.
    * @param mixed $value
    */
   public function __construct($value = null) {
@@ -23,17 +23,17 @@ abstract class Atom {
   /**
    * Adds properties from JSON.
    * @param string $json
-   * @return IO $this
+   * @return Atom $this
    */
   public function fromJson($json) {
-    Helpers::scalar('json', 'string', $json);
+    Helpers::checkType('json', 'string', $json);
     return $this->setValue(json_decode($json));
   }
 
   /**
-   * Creates a new instance of an IO object from $json.
+   * Creates a new instance of an Atom object from $json.
    * @param string $json
-   * @return IO
+   * @return Atom
    */
   public static function createFromJson($json) {
     $new_instance = new static();

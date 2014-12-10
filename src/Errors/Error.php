@@ -10,11 +10,9 @@ class Error {
    * Constructs a new Error with a $message.
    * @param string $message
    */
-  public function __construct($message, $trace) {
-    Helpers::scalar('message', 'string', $message);
-    Helpers::scalar('trace', 'string', $trace);
+  public function __construct($message) {
+    Helpers::checkType('message', 'string', $message);
     $this->message = $message;
-    $this->addTrace($trace);
   }
 
   /**
@@ -22,7 +20,7 @@ class Error {
    * @param string $trace
    */
   final public function addTrace($trace) {
-    Helpers::scalar('trace', 'string', $trace);
+    Helpers::checkType('trace', 'string', $trace);
     array_splice($this->trace, 0, 0, [$trace]);
     return $this;
   }
@@ -56,6 +54,6 @@ class Error {
    * @return string
    */
   final public function __toString() {
-    return $this->getMessage() . ' in ' . $this->getTraceAsString();
+    return $this->getMessage() . ' in `' . $this->getTraceAsString() . '`';
   }
 }
