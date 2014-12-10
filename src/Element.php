@@ -120,4 +120,14 @@ abstract class Element extends Atom {
 
     return $this;
   }
+
+  /**
+   * Gets $prop_key on $this->value.
+   * @param string $prop_key
+   * @return mixed
+   */
+  public function getProp($prop_key) {
+    Helpers::checkType('prop_key', 'string', $prop_key);
+    return isset($this->value->{$prop_key}) ? $this->value->{$prop_key} : null;
+  }
 }
