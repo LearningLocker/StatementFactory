@@ -54,6 +54,8 @@ class Error {
    * @return string
    */
   final public function __toString() {
-    return $this->getMessage() . ' in `' . $this->getTraceAsString() . '`';
+    $trace = $this->getTraceAsString();
+    $ending = $trace === '' ? '' : ' in `' . $trace . '`';
+    return $this->getMessage() . $ending;
   }
 }

@@ -1,18 +1,34 @@
 <?php
 require '../vendor/autoload.php';
 
-use Locker\XApi\Actor as Actor;
+use Locker\XApi as XApi;
 
 try {
   // Code.
-  $obj = Actor::createFromJson('{
-    "name": "Bilbo",
-    "mbox": "mailto:bilbo.b@ggins.com"
+  $obj = XApi\Statement::createFromJson('{
+    "actor": {
+      "name": "hello",
+      "account": {
+        "name": "hello",
+        "homePage": "http://www.example.com"
+      }
+    },
+    "verb": {
+      "id": "http://www.example.com/verbs/test",
+      "display": {"gdfgdfg":"sfdsdf"}
+    },
+    "object": {}
   }');
 
   // Output.
-  echo 'Errors = ["'. implode('", "', $obj->validate()) . '"]';
-  echo $obj->toJson();
+  $errors = $obj->validate();
+  if (empty($errors)) {
+    echo $obj->toJson();
+  } else {
+    echo json_encode(array_map(function ($error) {
+      return (string) $error;
+    }, $errors));
+  }
 } catch (Exception $ex) {
   $arrEx = [
     'message' => $ex->getMessage(),

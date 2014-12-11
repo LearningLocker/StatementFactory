@@ -3,14 +3,19 @@
 use Locker\XApi\Errors\Error as Error;
 
 class Actor extends Element {
-  protected $props = [
+  protected static $props = [
     'name' => 'Locker\XApi\String',
     'objectType' => 'Locker\XApi\ObjectType',
     'mbox' => 'Locker\XApi\Mailto',
-    'mbox_sha1sum' => 'Locker\XApi\MboxSha1Sum',
+    'mbox_sha1sum' => 'Locker\XApi\Sha1',
     'openid' => 'Locker\XApi\IRI',
     'account' => 'Locker\XApi\Account',
   ];
+
+  public function __construct($value = null) {
+    parent::__construct($value);
+    $this->value->objectType = 'Agent'; // Default.
+  }
 
   public function validate() {
     $errors = [];
@@ -23,7 +28,7 @@ class Actor extends Element {
 
     // Checks that only one identifier is used.
     if ($used_identifiers !== 1) {
-      $errors[] = new Error('An Actor must have exactly one identifier', get_class($this));
+      $errors[] = new Error('An Actor must have exactly one identifier');
     }
 
     return array_merge($errors, parent::validate());
