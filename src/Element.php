@@ -87,7 +87,7 @@ abstract class Element extends Atom {
    * @param Object
    * @return [string]
    */
-  private function getSetProps($object = null) {
+  protected function getSetProps($object = null) {
     $object = $object ?: $this->value;
     return array_keys((array) $object);
   }
