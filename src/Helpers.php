@@ -9,7 +9,7 @@ class Helpers {
    */
   public static function checkType($name, $type, $value) {
     if (self::getType($value) !== $type) {
-      throw new \UnexpectedValueException("Expected `$name` to be a `$type`.");
+      throw new \UnexpectedValueException("`$value` should be a `$type`.");
     }
   }
 
