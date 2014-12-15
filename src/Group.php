@@ -2,7 +2,7 @@
 
 class Group extends Agent {
   protected $props = [
-    'members' => 'Locker\XApi\Members'
+    'member' => 'Locker\XApi\Members'
   ];
   protected $type = 'Group';
   protected $type_prop = 'objectType';
