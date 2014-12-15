@@ -3,6 +3,8 @@
 use Locker\XApi\Errors\Error as Error;
 
 class Agent extends Element {
+  use TypedElement;
+
   protected $props = [
     'name' => 'Locker\XApi\String',
     'mbox' => 'Locker\XApi\Mailto',
@@ -11,6 +13,14 @@ class Agent extends Element {
     'account' => 'Locker\XApi\Account',
     'objectType' => 'Locker\XApi\ObjectType'
   ];
+  protected $required_props = ['objectType'];
+  protected $type = 'Agent';
+  protected $type_prop = 'objectType';
+
+  public function __construct($value = null) {
+    $this->addDefaults();
+    parent::__construct($value);
+  }
 
   private function countIdentifiers() {
     $identifiers = ['mbox', 'mbox_sha1sum', 'openid', 'account'];
@@ -28,7 +38,7 @@ class Agent extends Element {
   }
 
   public function validate() {
-    $errors = [];
+    $errors = $this->validateTypedElement();
 
     // Gets the used identifiers.
     $used_identifiers = $this->countIdentifiers();

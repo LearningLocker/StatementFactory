@@ -8,8 +8,10 @@ class Helpers {
    * @param mixed $value
    */
   public static function checkType($name, $type, $value) {
-    if (self::getType($value) !== $type) {
-      throw new \UnexpectedValueException("`$value` should be a `$type`.");
+    $given_type = self::getType($value);
+    if ($given_type !== $type) {
+      $value = $value instanceof Atom ? $value->toJson() : json_encode($value);
+      throw new \UnexpectedValueException("`$value` should be a `$type` not `$given_type`. If you're decoding JSON, make sure you're using valid JSON.");
     }
   }
 

@@ -36,6 +36,14 @@ class Element extends Atom {
   }
 
   /**
+   * Gets the known props.
+   * @return [string]
+   */
+  public function getKnownProps() {
+    return $this->props;
+  }
+
+  /**
    * Adds properties from $new_value.
    * @param \stdClass $new_value
    * @return Element $this
@@ -93,14 +101,14 @@ class Element extends Atom {
     // Finds missing properties.
     $missing_props = array_diff($this->required_props, $set_props);
     if (!empty($missing_props)) {
-      $errors[] = new MissingProperties($missing_props);
+      $errors[] = new MissingProperties(array_values($missing_props), get_class($this));
     }
 
     // Finds unknown properties.
     if (!$this->allow_unknown_props) {
       $unknown_props = array_diff($set_props, $this->known_props);
       if (!empty($unknown_props)) {
-        $errors[] = new UnknownProperties($unknown_props);
+        $errors[] = new UnknownProperties(array_values($unknown_props), get_class($this));
       }
     }
 
