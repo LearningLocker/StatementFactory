@@ -161,4 +161,25 @@ class Element extends Atom {
     Helpers::checkType('prop_key', 'string', $prop_key);
     return isset($this->value->{$prop_key}) ? $this->value->{$prop_key} : null;
   }
+
+  /**
+   * Gets $prop_key on $this->value.
+   * @param string $prop_key
+   * @return mixed
+   */
+  public function getPropValue($prop_key) {
+    Helpers::checkType('prop_key', 'string', $prop_key);
+    return $this->_getPropValue(explode('.'), $prop_key);
+  }
+
+  private function _getPropValue(array $prop_key) {
+    $prop_value = $this->getProp($prop_key[0]);
+    if ($prop_value instanceof Element && count($prop_key) > 1) {
+      return $prop_value->_getPropValue(array_slice($prop_key, 1));
+    } else if ($prop_value instanceof Atom && count($prop_key) === 1) {
+      return $prop_value->getValue();
+    } else {
+      return null;
+    }
+  }
 }
