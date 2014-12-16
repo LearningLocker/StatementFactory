@@ -169,7 +169,7 @@ class Element extends Atom {
    */
   public function getPropValue($prop_key) {
     Helpers::checkType('prop_key', 'string', $prop_key);
-    return $this->_getPropValue(explode('.'), $prop_key);
+    return $this->_getPropValue(explode('.', $prop_key));
   }
 
   private function _getPropValue(array $prop_key) {
