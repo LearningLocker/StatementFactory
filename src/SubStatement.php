@@ -21,9 +21,7 @@ class SubStatement extends StatementBase {
     $errors = parent::validate();
     $errors = array_merge($errors, $this->validateTypedElement());
 
-    $object = $this->getProp('object');
-    $object_type = $object !== null ? $object->getProp('objectType') : null;
-    $object_type = $object_type !== null ? $object_type->getValue() : null;
+    $object_type = $this->getPropValue('object.objectType');
 
     if ($object_type === 'SubStatement') {
       $class = get_class($this);
