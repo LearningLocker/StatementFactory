@@ -182,4 +182,10 @@ class Element extends Atom {
       return null;
     }
   }
+
+  public function unsetProp($prop_key) {
+    Helpers::checkType('prop_key', 'string', $prop_key);
+    unset($this->value->{$prop_key});
+    return $this;
+  }
 }
