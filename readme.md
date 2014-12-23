@@ -1,16 +1,16 @@
 # xAPI
 > Learning Locker's classes for xAPI.
 
-[![Build Status](https://travis-ci.org/LearningLocker/xapi.svg)](https://travis-ci.org/LearningLocker/xapi)
-[![Latest Stable Version](https://poser.pugx.org/LearningLocker/xapi/v/stable.svg)](https://packagist.org/packages/LearningLocker/xapi)
-[![Total Downloads](https://poser.pugx.org/LearningLocker/xapi/downloads.svg)](https://packagist.org/packages/LearningLocker/xapi)
-[![License](https://poser.pugx.org/LearningLocker/xapi/license.svg)](https://packagist.org/packages/LearningLocker/xapi)
+[![Build Status](https://travis-ci.org/learninglocker/statementfactory.svg)](https://travis-ci.org/learninglocker/statementfactory)
+[![Latest Stable Version](https://poser.pugx.org/learninglocker/statementfactory/v/stable.svg)](https://packagist.org/packages/learninglocker/statementfactory)
+[![Total Downloads](https://poser.pugx.org/learninglocker/statementfactory/downloads.svg)](https://packagist.org/packages/learninglocker/statementfactory)
+[![License](https://poser.pugx.org/learninglocker/statementfactory/license.svg)](https://packagist.org/packages/learninglocker/statementfactory)
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/LearningLocker/learninglocker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 If you have a bug, enhancement, or question you can post it in the [issues](/issues), however, please see the [guidelines](/contributing.md) before doing so. You may also ask questions and chat on [Gitter](https://gitter.im/LearningLocker/learninglocker).
 
 ## Users
-Documentation can be found in the [docs](/docs) directory. Install using `composer require LearningLocker/xapi`.
+Documentation can be found in the [docs](/docs) directory. Install using `composer require learninglocker/statementfactory`.
 
 ## Developers
 You may contribute to this project via [issues](/issues) and [pull request](/pulls), however, please see the [guidelines](/contributing.md) before doing so.
