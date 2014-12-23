@@ -1,7 +1,7 @@
 {
   "name": "learninglocker/statementfactory",
-  "description": "",
-  "license": "Creative Commons",
+  "description": "Learning Locker's classes for xAPI.",
+  "license": "GPL v3",
   "autoload": {
       "psr-4": { "Locker\\XApi\\": "src/" }
   },
