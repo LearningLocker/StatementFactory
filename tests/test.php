@@ -8,7 +8,6 @@ try {
   // Code.
   $file_location = 'assets/test.json';
   $obj = XApi\Statement::createFromJson(file_get_contents($file_location));
-
   // Output.
   $errors = $obj->validate();
   if (empty($errors)) {
