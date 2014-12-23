@@ -49,7 +49,10 @@ class Element extends Atom {
    * @return Element $this
    */
   public function setValue($new_value) {
-    Helpers::checkType('new_value', 'stdClass', $new_value);
+    if (gettype($new_value) !== 'object') {
+      return parent::setValue($new_value);
+    }
+
     $new_props = $this->getSetProps($new_value);
 
     foreach ($new_props as $new_prop) {
@@ -66,6 +69,10 @@ class Element extends Atom {
    */
   protected function getSetProps($object = null) {
     $object = $object ?: $this->value;
+    if (gettype($object) !== 'object') {
+      return [];
+    }
+
     return array_keys((array) $object);
   }
 
@@ -74,6 +81,10 @@ class Element extends Atom {
    * @return stdClass
    */
   public function getValue() {
+    if (gettype($this->value) !== 'object') {
+      return parent::getValue();
+    }
+
     $value = clone($this->value);
     $set_props = $this->getSetProps();
 
@@ -92,6 +103,12 @@ class Element extends Atom {
    * @return [Error]
    */
   public function validate() {
+    $value_type = gettype($this->value);
+    if (gettype($this->value) !== 'object') {
+      $encoded_value = json_encode($this->value);
+      return [new Error("`$encoded_value` must be `object` not `$value_type`")];
+    }
+
     $errors = [];
 
     // Gets properties.
@@ -132,6 +149,10 @@ class Element extends Atom {
    * @return Element $this
    */
   public function setProp($prop_key, $prop_value) {
+    if (gettype($this->value) !== 'object') {
+      return $this;
+    }
+
     Helpers::checkType('prop_key', 'string', $prop_key);
 
     if ($prop_value === null) {
@@ -158,6 +179,10 @@ class Element extends Atom {
    * @return mixed
    */
   public function getProp($prop_key) {
+    if (gettype($this->value) !== 'object') {
+      return null;
+    }
+
     Helpers::checkType('prop_key', 'string', $prop_key);
     return isset($this->value->{$prop_key}) ? $this->value->{$prop_key} : null;
   }
@@ -168,6 +193,10 @@ class Element extends Atom {
    * @return mixed
    */
   public function getPropValue($prop_key) {
+    if (gettype($this->value) !== 'object') {
+      return null;
+    }
+
     Helpers::checkType('prop_key', 'string', $prop_key);
     return $this->_getPropValue(explode('.', $prop_key));
   }
@@ -184,6 +213,10 @@ class Element extends Atom {
   }
 
   public function unsetProp($prop_key) {
+    if (gettype($this->value) !== 'object') {
+      return $this;
+    }
+
     Helpers::checkType('prop_key', 'string', $prop_key);
     unset($this->value->{$prop_key});
     return $this;

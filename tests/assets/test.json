@@ -33,6 +33,7 @@
       "type": "http://activitystrea.ms/schema/1.0/badge"
     }
   },
+  "context": [1, {"a": 1}, 0, null],
   "authority": {
     "name": "",
     "mbox": "mailto:quan@ll.com",

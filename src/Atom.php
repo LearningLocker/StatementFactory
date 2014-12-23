@@ -27,7 +27,11 @@ abstract class Atom {
    */
   public function fromJson($json) {
     Helpers::checkType('json', 'string', $json);
-    return $this->setValue(json_decode($json));
+    $decoded_value = json_decode($json);
+    if ($decoded_value === null && ($json !== 'null' || $json !== '')) {
+      throw new \Exception('Invalid JSON.');
+    }
+    return $this->setValue($decoded_value);
   }
 
   /**
