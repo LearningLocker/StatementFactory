@@ -21,9 +21,7 @@ class Element extends Atom {
     $parent_class = get_parent_class(get_called_class());
     if ($parent_class && $parent_class !== 'Locker\XApi\Atom') {
       $parent_instance = new $parent_class;
-      $this->props = array_unique(
-        array_merge($parent_instance->props, $this->props)
-      );
+      $this->props = array_merge($parent_instance->props, $this->props);
       $this->required_props = array_unique(
         array_merge($parent_instance->required_props, $this->required_props)
       );
