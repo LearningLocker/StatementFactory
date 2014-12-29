@@ -27,9 +27,7 @@ class Element extends Atom {
       $this->required_props = array_unique(
         array_merge($parent_instance->required_props, $this->required_props)
       );
-      $this->default_props = array_unique(
-        array_merge($parent_instance->default_props, $this->default_props)
-      );
+      $this->default_props = array_merge($parent_instance->default_props, $this->default_props);
     }
     $this->known_props = array_keys($this->props);
 
