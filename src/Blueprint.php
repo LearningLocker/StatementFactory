@@ -69,8 +69,8 @@ class Blueprint extends Element {
   }
 
   public function setProp($prop_key, $prop_value) {
-    if (gettype($new_value) !== 'object') {
-      return null;
+    if (gettype($this->value) !== 'object') {
+      return $this;
     }
 
     $this->value->setProp($prop_key, $prop_value);
@@ -78,7 +78,7 @@ class Blueprint extends Element {
   }
 
   public function getProp($prop_key) {
-    if (gettype($new_value) !== 'object') {
+    if (gettype($this->value) !== 'object') {
       return null;
     }
 
