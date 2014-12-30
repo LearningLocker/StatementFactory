@@ -61,7 +61,7 @@ class Blueprint extends Element {
       $type = $type instanceof Atom ? $type->getValue() : $type;
       if (!in_array($type, $this->accepted_types)) {
         $errors[] = new Error(
-          "`$type` (".get_class($this->value).") is not a valid `{$this->type_prop}` in `".get_class($this).'`. Acceptable types are `'.json_encode($this->accepted_types).'`'
+          "`$type` (".get_class($this->value).") is not a valid `{$this->type_prop}` in `".get_class($this).'`. Acceptable types are `'.implode(', ', $this->accepted_types).'`'
         );
       }
     }
