@@ -41,7 +41,7 @@ class Blueprint extends Element {
   }
 
   public function getValue() {
-    if (gettype($new_value) !== 'object') {
+    if (gettype($this->value) !== 'object') {
       return $this->value;
     }
 
