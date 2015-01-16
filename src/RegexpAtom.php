@@ -7,7 +7,7 @@ class RegexpAtom extends Atom {
   protected static $invalid_message;
 
   protected function getInvalidMessage() {
-    return static::$invalid_message ?: '`'.$this->value.'` should be a valid `' . get_class($this) . '`';
+    return static::$invalid_message .'`'.$this->value.'` should be a valid `' . get_class($this) . '`';
   }
 
   public function validate() {
