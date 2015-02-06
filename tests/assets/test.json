@@ -1,4 +1,5 @@
 {
+  "id": "710cc790-9d8d-11e4-bd06-0800200c9a66",
   "actor": {
     "objectType": "Agent",
     "mbox": "mailto:duy.nguyen@go1.com.au",
@@ -6,14 +7,14 @@
   },
   "verb": {
     "id": "http://adlnet.gov/expapi/verbs/experienced",
-    "display": {"und": "experienced"}
+    "display": {"en-us": "experienced"}
   },
   "context": {
     "contextActivities": {
-      "parent": [{
+      "parent": {
         "id": "http://tincanapi.com/GolfExample_TCAPI",
-        "objectType": "Activity"
-      }],
+        "objectType": "Activit"
+      },
       "grouping": [{
         "id": "http://tincanapi.com/GolfExample_TCAPI",
         "objectType": "Activity"
@@ -30,10 +31,9 @@
       "description": {
         "en-US": "An overview of how to score a round of golf."
       },
-      "type": "http://activitystrea.ms/schema/1.0/badge"
+      "type": "http:///activitystrea.ms/schema/1.0/badge"
     }
   },
-  "context": [1, {"a": 1}, 0, null],
   "authority": {
     "name": "",
     "mbox": "mailto:quan@ll.com",
