@@ -18,6 +18,7 @@ function getJsonValidationErrors($errors) {
 }
 
 // Creates a statement and validates it.
+$json_string = '{}'; // Change this string to the JSON for the statement!!!
 $statement = Statement::createFromJson($json_string);
 $errors = $statement->validate();
 
