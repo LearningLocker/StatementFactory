@@ -13,7 +13,7 @@
     "contextActivities": {
       "parent": {
         "id": "http://tincanapi.com/GolfExample_TCAPI",
-        "objectType": "Activit"
+        "objectType": "Activity"
       },
       "grouping": [{
         "id": "http://tincanapi.com/GolfExample_TCAPI",
