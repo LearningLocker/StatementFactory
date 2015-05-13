@@ -1,17 +1,33 @@
 <?php namespace Locker\XApi;
 
-class Timestamp extends RegexpAtom {
-  protected static $pattern = '/^([\+-]?\d{4}(?!\d{2}\b))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([T\s]((([01]\d|2[0-3])((:?)[0-5]\d)?|24\:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|((?!-0{2}(:0{2})?)([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?)?$/';
+define('ISO_YEAR', '(\d{4})');
+define('ISO_MONTH', '((0[1-9])|(1[012]))');
+define('ISO_DAY', '((0[1-9])|([12]\d)|(3[01]))');
+define('ISO_HOUR', '(([01]\d)|(2[0123]))');
+define('ISO_MINUTE', '([012345]\d)');
+define('ISO_SECOND', '([012345]\d)');
+define('ISO_FRACTION', '(\d+)');
+define('ISO_DATE_SEPARATOR', '-');
+define('ISO_TIME_SEPARATOR', ':');
 
-  /**
-   * Sets the $value.
-   * @param mixed $new_value
-   * @return Atom $this
-   */
-  public function setValue($new_value) {
-    if (preg_match('/[-+]\d\d$/', $new_value)) {
-      $new_value .= ':00';
-    }
-    return parent::setValue($new_value);
-  }
+define('ISO_BASIC_DATE', '('.ISO_YEAR.ISO_MONTH.ISO_DAY.')');
+define('ISO_BASIC_TIME', '('.ISO_HOUR.'('.ISO_MINUTE.'('.ISO_SECOND.ISO_FRACTION.'?)?)?)');
+define('ISO_BASIC_ZONE', '(Z|([\+\-]'.ISO_HOUR.ISO_MINUTE.'?))');
+define('ISO_BASIC', '('.ISO_BASIC_DATE.'(T'.ISO_BASIC_TIME.ISO_BASIC_ZONE.')?)');
+
+define('ISO_EXTENDED_MONTH', '('.ISO_DATE_SEPARATOR.ISO_MONTH.')');
+define('ISO_EXTENDED_DAY', '('.ISO_DATE_SEPARATOR.ISO_DAY.')');
+define('ISO_EXTENDED_MINUTE', '('.ISO_TIME_SEPARATOR.ISO_MINUTE.')');
+define('ISO_EXTENDED_SECOND', '('.ISO_TIME_SEPARATOR.ISO_SECOND.')');
+define('ISO_EXTENDED_FRACTION', '(\.'.ISO_FRACTION.')');
+
+define('ISO_EXTENDED_DATE', '('.ISO_YEAR.ISO_EXTENDED_MONTH.ISO_EXTENDED_DAY.')');
+define('ISO_EXTENDED_TIME', '('.ISO_HOUR.'('.ISO_EXTENDED_MINUTE.'('.ISO_EXTENDED_SECOND.ISO_EXTENDED_FRACTION.'?)?)?)');
+define('ISO_EXTENDED_ZONE', '(Z|([\+\-]'.ISO_HOUR.ISO_EXTENDED_MINUTE.'?))');
+define('ISO_EXTENDED', '('.ISO_EXTENDED_DATE.'(T'.ISO_EXTENDED_TIME.ISO_EXTENDED_ZONE.')?)');
+
+define('ISO_TIMESTAMP', '/^('.ISO_EXTENDED.'|'.ISO_BASIC.')$/');
+
+class Timestamp extends RegexpAtom {
+  protected static $pattern = ISO_TIMESTAMP;
 }
