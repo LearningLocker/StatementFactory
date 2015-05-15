@@ -3,7 +3,7 @@ require '../vendor/autoload.php';
 
 use Locker\XApi as XApi;
 
-
+header('Content-Type: application/json');
 try {
   // Code.
   $file_location = 'assets/test.json';
