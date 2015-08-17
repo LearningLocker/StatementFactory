@@ -1,11 +1,20 @@
 {
-  "actor":{
-    "mbox":"mailto:test@example.com"
-  },
-  "verb":{
-    "id":"http://adlnet.gov/expapi/verbs/voided"
-  },
-  "object":{
-    "id":"http://kiem.curatr3.com/courses/mentoropleiding"
-  }
+    "actor": {
+        "objectType": "Group",
+        "account": {
+            "homePage": "http://myaccount.bmj.com",
+            "name": "hrl"
+        },
+        "member": [
+        ]
+    },
+    "verb": {
+        "id": "http:\/\/adlnet.gov\/expapi\/verbs\/completed",
+        "display": {
+            "en-GB": "completed"
+        }
+    },
+    "object": {
+        "id": "http:\/\/localhost\/moodle\/mod\/quiz\/attempt.php?attempt=48"
+    }
 }
