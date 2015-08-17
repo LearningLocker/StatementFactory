@@ -4,3 +4,5 @@
 # Composer.
 vendor
 composer.lock
+
+tests/assets/test.json
