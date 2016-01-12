@@ -1,12 +1,6 @@
 {
     "actor": {
-        "objectType": "Group",
-        "account": {
-            "homePage": "http://myaccount.bmj.com",
-            "name": "hrl"
-        },
-        "member": [
-        ]
+        "mbox": "mailto:x@y.horse"
     },
     "verb": {
         "id": "http:\/\/adlnet.gov\/expapi\/verbs\/completed",
