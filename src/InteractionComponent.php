@@ -2,7 +2,7 @@
 
 class InteractionComponent extends Element {
   protected $props = [
-    'id' => 'Locker\XApi\String',
+    'id' => 'Locker\XApi\Str',
     'description' => 'Locker\XApi\LanguageMap'
   ];
 }

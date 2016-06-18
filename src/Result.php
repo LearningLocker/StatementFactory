@@ -5,7 +5,7 @@ class Result extends Element {
     'score' => 'Locker\XApi\Score',
     'success' => 'Locker\XApi\Boolean',
     'completion' => 'Locker\XApi\Boolean',
-    'response' => 'Locker\XApi\String',
+    'response' => 'Locker\XApi\Str',
     'duration' => 'Locker\XApi\Duration',
     'extensions' => 'Locker\XApi\Extensions',
   ];

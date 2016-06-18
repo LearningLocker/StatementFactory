@@ -6,7 +6,7 @@ class Agent extends Element {
   use TypedElement;
 
   protected $props = [
-    'name' => 'Locker\XApi\String',
+    'name' => 'Locker\XApi\Str',
     'mbox' => 'Locker\XApi\Mailto',
     'mbox_sha1sum' => 'Locker\XApi\Sha1',
     'openid' => 'Locker\XApi\IRI',

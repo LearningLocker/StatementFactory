@@ -11,7 +11,7 @@ class LanguageMap extends Element {
       $errors = array_merge($errors, (new Language($set_prop))->validate());
       $errors = array_merge($errors, array_map(function ($error) use ($set_prop) {
         return $error->addTrace($set_prop);
-      }, (new String($this->value->{$set_prop}))->validate()));
+      }, (new Str($this->value->{$set_prop}))->validate()));
     }
     return array_merge($errors, parent::validate());
   }

@@ -6,8 +6,8 @@ class Context extends Element {
     'instructor' => 'Locker\XApi\Actor',
     'team' => 'Locker\XApi\Group',
     'contextActivities' => 'Locker\XApi\ContextActivities',
-    'revision' => 'Locker\XApi\String',
-    'platform' => 'Locker\XApi\String',
+    'revision' => 'Locker\XApi\Str',
+    'platform' => 'Locker\XApi\Str',
     'language' => 'Locker\XApi\Language',
     'statement' => 'Locker\XApi\StatementRef',
     'extensions' => 'Locker\XApi\Extensions'
