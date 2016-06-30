@@ -1,5 +1,5 @@
 <?php namespace Locker\XApi;
 
-class String extends TypedAtom {
+class Str extends TypedAtom {
   protected static $expected_types = ['string'];
 }

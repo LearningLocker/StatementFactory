@@ -7,7 +7,7 @@ class Attachment extends Element {
     'description' => 'Locker\XApi\LanguageMap',
     'contentType' => 'Locker\XApi\IMT',
     'length' => 'Locker\XApi\Integer',
-    'sha2' => 'Locker\XApi\String',
+    'sha2' => 'Locker\XApi\Str',
     'fileUrl' => 'Locker\XApi\IRI'
   ];
   protected $required_props = ['usageType', 'display', 'contentType', 'length', 'sha2'];

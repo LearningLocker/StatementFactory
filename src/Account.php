@@ -3,7 +3,7 @@
 class Account extends Element {
   protected $props = [
     'homePage' => 'Locker\XApi\IRI',
-    'name' => 'Locker\XApi\String',
+    'name' => 'Locker\XApi\Str',
   ];
   protected $required_props = ['homePage', 'name'];
 }
