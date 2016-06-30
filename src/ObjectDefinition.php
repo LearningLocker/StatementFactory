@@ -3,7 +3,7 @@
 class ObjectDefinition extends Definition {
   protected $props = [
     'interactionType' => 'Locker\XApi\InteractionType',
-    'correctResponsesPattern' => 'Locker\XApi\Strs',
+    'correctResponsesPattern' => 'Locker\XApi\Strings',
     'choices' => 'Locker\XApi\InteractionComponents',
     'scale' => 'Locker\XApi\InteractionComponents',
     'source' => 'Locker\XApi\InteractionComponents',
