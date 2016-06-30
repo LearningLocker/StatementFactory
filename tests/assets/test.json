@@ -10,5 +10,14 @@
     },
     "object": {
         "id": "http:\/\/localhost\/moodle\/mod\/quiz\/attempt.php?attempt=48"
-    }
+    },
+    "attachments": [{
+      "contentType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "usageType": "http://www.example.com",
+      "display": {},
+      "description": {},
+      "length": 100,
+      "sha2": "9cfe7faff7054298ca87557e15a10262de8d3eee77827417fbdfea1c41b9ec23",
+      "fileUrl": "http://www.example.com"
+    }]
 }
