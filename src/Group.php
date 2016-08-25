@@ -15,7 +15,7 @@ class Group extends Agent {
   protected function validateIdentifiers($used_identifiers) {
     $members = $this->getPropValue('member') ?: null;
     $validateIdentifiers = parent::validateIdentifiers($used_identifiers);
-    $validateMembers = $members === null || count($members) === 0;
+    $validateMembers = $members !== null && count($members) > 0;
     return $validateIdentifiers && $validateMembers;
   }
 }
