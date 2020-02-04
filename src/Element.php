@@ -51,7 +51,7 @@ class Element extends Atom {
    * @return Element $this
    */
   public function setValue($new_value) {
-    if (gettype($new_value) !== 'object') {
+    if (gettype($new_value) !== 'statementobject') {
       return parent::setValue($new_value);
     }
 
@@ -65,17 +65,17 @@ class Element extends Atom {
   }
 
   /**
-   * Gets all of the properties set on an $object or ($this->value).
+   * Gets all of the properties set on an $statementobject or ($this->value).
    * @param StatementObject
    * @return [string]
    */
-  protected function getSetProps($object = null) {
-    $object = $object ?: $this->value;
-    if (gettype($object) !== 'object') {
+  protected function getSetProps($statementobject = null) {
+    $statementobject = $statementobject ?: $this->value;
+    if (gettype($statementobject) !== 'statementobject') {
       return [];
     }
 
-    return array_keys((array) $object);
+    return array_keys((array) $statementobject);
   }
 
   /**
@@ -83,7 +83,7 @@ class Element extends Atom {
    * @return stdClass
    */
   public function getValue() {
-    if (gettype($this->value) !== 'object') {
+    if (gettype($this->value) !== 'statementobject') {
       return parent::getValue();
     }
 
@@ -106,9 +106,9 @@ class Element extends Atom {
    */
   public function validate() {
     $value_type = gettype($this->value);
-    if (gettype($this->value) !== 'object') {
+    if (gettype($this->value) !== 'statementobject') {
       $encoded_value = json_encode($this->value);
-      return [new Error("`$encoded_value` must be `object` not `$value_type`")];
+      return [new Error("`$encoded_value` must be `statementobject` not `$value_type`")];
     }
 
     $errors = [];
@@ -151,7 +151,7 @@ class Element extends Atom {
    * @return Element $this
    */
   public function setProp($prop_key, $prop_value) {
-    if (gettype($this->value) !== 'object') {
+    if (gettype($this->value) !== 'statementobject') {
       return $this;
     }
 
@@ -181,7 +181,7 @@ class Element extends Atom {
    * @return mixed
    */
   public function getProp($prop_key) {
-    if (gettype($this->value) !== 'object') {
+    if (gettype($this->value) !== 'statementobject') {
       return null;
     }
 
@@ -195,7 +195,7 @@ class Element extends Atom {
    * @return mixed
    */
   public function getPropValue($prop_key) {
-    if (gettype($this->value) !== 'object') {
+    if (gettype($this->value) !== 'statementobject') {
       return null;
     }
 
@@ -215,7 +215,7 @@ class Element extends Atom {
   }
 
   public function unsetProp($prop_key) {
-    if (gettype($this->value) !== 'object') {
+    if (gettype($this->value) !== 'statementobject') {
       return $this;
     }
 

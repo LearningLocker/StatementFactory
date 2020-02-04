@@ -32,7 +32,7 @@ class Helpers {
    */
   public static function getType($value) {
     $type = gettype($value);
-    if ($type === 'object') {
+    if ($type === 'statementobject') {
       return get_class($value);
     } else {
       return $type;

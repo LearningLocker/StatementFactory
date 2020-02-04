@@ -10,7 +10,7 @@
             "en-US":"attempted"
         }
     },
-    "object":{
+    "statementobject":{
         "id":"http://example.adlnet.gov/xapi/example/simpleCBT",
         "definition":{
             "name":{

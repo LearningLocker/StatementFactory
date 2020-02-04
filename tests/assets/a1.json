@@ -11,7 +11,7 @@
             "en-US":"created"
         }
     },
-    "object":{
+    "statementobject":{
         "id":"http://example.adlnet.gov/xapi/example/simplestatement",
         "definition":{
             "name":{

@@ -109,7 +109,7 @@
         "objectType": "Agent"
     },
     "version": "1.0.0",
-    "object": {
+    "statementobject": {
         "id": "http://www.example.com/meetings/occurances/34534",
         "definition": {
             "extensions": {

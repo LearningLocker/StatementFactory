@@ -8,7 +8,7 @@
             "en-GB": "completed"
         }
     },
-    "object": {
+    "statementobject": {
         "id": "http:\/\/localhost\/moodle\/mod\/quiz\/attempt.php?attempt=48"
     },
     "attachments": [{

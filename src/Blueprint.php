@@ -14,7 +14,7 @@ class Blueprint extends Element {
   }
 
   public function setValue($new_value) {
-    if (gettype($new_value) !== 'object') {
+    if (gettype($new_value) !== 'statementobject') {
       $this->value = $new_value;
       return $this;
     }
@@ -36,12 +36,12 @@ class Blueprint extends Element {
     return $this;
   }
 
-  protected function getSetProps($object = null) {
-    return parent::getSetProps($object);
+  protected function getSetProps($statementobject = null) {
+    return parent::getSetProps($statementobject);
   }
 
   public function getValue() {
-    if (gettype($this->value) !== 'object') {
+    if (gettype($this->value) !== 'statementobject') {
       return $this->value;
     }
 
@@ -50,9 +50,9 @@ class Blueprint extends Element {
 
   public function validate() {
     $value_type = gettype($this->value);
-    if (gettype($this->value) !== 'object') {
+    if (gettype($this->value) !== 'statementobject') {
       $encoded_value = json_encode($this->value);
-      return [new Error("`$encoded_value` must be `object` not `$value_type`")];
+      return [new Error("`$encoded_value` must be `statementobject` not `$value_type`")];
     }
 
     $errors = [];
@@ -69,7 +69,7 @@ class Blueprint extends Element {
   }
 
   public function setProp($prop_key, $prop_value) {
-    if (gettype($this->value) !== 'object') {
+    if (gettype($this->value) !== 'statementobject') {
       return $this;
     }
 
@@ -78,7 +78,7 @@ class Blueprint extends Element {
   }
 
   public function getProp($prop_key) {
-    if (gettype($this->value) !== 'object') {
+    if (gettype($this->value) !== 'statementobject') {
       return null;
     }
 

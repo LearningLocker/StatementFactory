@@ -10,7 +10,7 @@
       "en-us": "yo"
     }
   },
-  "object": {
+  "statementobject": {
     "objectType": "SubStatement",
     "actor": {
       "name": "hello",
@@ -23,7 +23,7 @@
         "en-us": "yo"
       }
     },
-    "object": {
+    "statementobject": {
       "id": "33616af0-8450-11e4-b4a9-0800200c9a66",
       "objectType": "StatementRef"
     }
