@@ -6,4 +6,7 @@ vendor
 composer.lock
 composer.phar
 
+# Jetbrains
+.idea/
+
 tests/assets/test.json
