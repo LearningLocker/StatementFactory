@@ -5,7 +5,7 @@ class StatementBase extends Element {
   protected $props = [
     'actor' => 'Locker\XApi\Actor',
     'verb' => 'Locker\XApi\Verb',
-    'object' => 'Locker\XApi\Object',
+    'object' => 'Locker\XApi\StatementObject',
     'result' => 'Locker\XApi\Result',
     'context' => 'Locker\XApi\Context',
     'timestamp' => 'Locker\XApi\Timestamp',

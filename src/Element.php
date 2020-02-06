@@ -66,7 +66,7 @@ class Element extends Atom {
 
   /**
    * Gets all of the properties set on an $object or ($this->value).
-   * @param Object
+   * @param StatementObject
    * @return [string]
    */
   protected function getSetProps($object = null) {
